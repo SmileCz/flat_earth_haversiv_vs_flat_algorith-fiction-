@@ -363,20 +363,97 @@
             }
         }
         .hidden { display: none !important; }
+        
+        /* Logo styling */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .logo {
+            max-width: 80px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            transition: transform 0.3s;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer styling */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 3px solid #0f3460;
+        }
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        footer .footer-logo {
+            max-width: 100px;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+            background: transparent;
+            border-radius: 10px;
+        }
+        footer h3 {
+            color: #38ef7d;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        footer p {
+            margin: 8px 0;
+            color: #a0d2eb;
+        }
+        footer .organization {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #38ef7d;
+            margin: 15px 0;
+        }
+        footer .license {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #38ef7d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #11998e;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Language Switch -->
         <div class="lang-switch">
-            <button id="btn-cs" class="active" onclick="setLanguage('cs')">🇨🇿 Čeština</button>
-            <button id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
+            <button id="btn-cs" class="active" onclick="setLanguage('cs')">CZ Čeština</button>
+            <button id="btn-en" onclick="setLanguage('en')">USA English</button>
         </div>
 
-        <h1>
-            <span class="lang-cs">🌍 Kalkulačka vzdáleností na Ploché Zemi 🗺️</span>
-            <span class="lang-en hidden">🌍 Flat Earth Distance Calculator 🗺️</span>
-        </h1>
+        <div class="header-container">
+            <img src="img/Logo_Space_League_of_Justice_2025.png" alt="Space League of Justice Logo" class="logo">
+            <h1 style="margin: 0;">
+                <span class="lang-cs">🌍 Kalkulačka vzdáleností na Ploché Zemi 🗺️</span>
+                <span class="lang-en hidden">🌍 Flat Earth Distance Calculator 🗺️</span>
+            </h1>
+            <img src="img/Logo_Space_League_of_Justice_2025.png" alt="Space League of Justice Logo" class="logo">
+        </div>
         <p class="subtitle">
             <span class="lang-cs">Azimutální ekvidistantní projekce - mapa kterou používají plochozemci</span>
             <span class="lang-en hidden">Azimuthal Equidistant Projection - the map flat earthers use</span>
@@ -477,41 +554,73 @@
                         </label>
                         <select id="city1" onchange="selectCity(1)" style="width:100%; padding:10px; border-radius:8px; border:2px solid #ddd; font-size:14px;">
                             <option value="">-- Vlastní souřadnice --</option>
-                            <option value="50.0755,14.4378" selected>🇨🇿 Praha (Prague)</option>
-                            <option value="48.8566,2.3522">🇫🇷 Paříž (Paris)</option>
-                            <option value="51.5074,-0.1278">🇬🇧 Londýn (London)</option>
-                            <option value="52.5200,13.4050">🇩🇪 Berlín (Berlin)</option>
-                            <option value="41.9028,12.4964">🇮🇹 Řím (Rome)</option>
-                            <option value="40.4168,-3.7038">🇪🇸 Madrid</option>
-                            <option value="55.7558,37.6173">🇷🇺 Moskva (Moscow)</option>
-                            <option value="40.7128,-74.0060">🇺🇸 New York</option>
-                            <option value="34.0522,-118.2437">🇺🇸 Los Angeles</option>
-                            <option value="41.8781,-87.6298">🇺🇸 Chicago</option>
-                            <option value="25.7617,-80.1918">🇺🇸 Miami</option>
-                            <option value="19.4326,-99.1332">🇲🇽 Mexico City</option>
-                            <option value="-22.9068,-43.1729">🇧🇷 Rio de Janeiro</option>
-                            <option value="-34.6037,-58.3816">🇦🇷 Buenos Aires</option>
-                            <option value="-33.8688,151.2093">🇦🇺 Sydney</option>
-                            <option value="-37.8136,144.9631">🇦🇺 Melbourne</option>
-                            <option value="35.6762,139.6503">🇯🇵 Tokio (Tokyo)</option>
-                            <option value="37.5665,126.9780">🇰🇷 Soul (Seoul)</option>
-                            <option value="39.9042,116.4074">🇨🇳 Peking (Beijing)</option>
-                            <option value="31.2304,121.4737">🇨🇳 Šanghaj (Shanghai)</option>
-                            <option value="22.3193,114.1694">🇭🇰 Hong Kong</option>
-                            <option value="1.3521,103.8198">🇸🇬 Singapur (Singapore)</option>
-                            <option value="28.6139,77.2090">🇮🇳 Dillí (Delhi)</option>
-                            <option value="19.0760,72.8777">🇮🇳 Bombaj (Mumbai)</option>
-                            <option value="-1.2921,36.8219">🇰🇪 Nairobi</option>
-                            <option value="-33.9249,18.4241">🇿🇦 Kapské město (Cape Town)</option>
-                            <option value="30.0444,31.2357">🇪🇬 Káhira (Cairo)</option>
-                            <option value="25.2048,55.2708">🇦🇪 Dubaj (Dubai)</option>
-                            <option value="64.1466,-21.9426">🇮🇸 Reykjavík</option>
-                            <option value="-41.2865,174.7762">🇳🇿 Wellington</option>
-                            <option value="38.8409,-105.0423">🇺🇸 Pikes Peak</option>
-                            <option value="38.9997,-104.49723">🇺🇸 Heffron</option>
-                            <option value="90,0">🧭 Severní pól (North Pole)</option>
-                            <option value="-90,0">🧭 Jižní pól (South Pole)</option>
-                            <option value="0,0">🧭 Nultý bod (0°, 0°)</option>
+                            <optgroup label="Evropa / Europe">
+                                <option value="50.0755,14.4378" selected>🇨🇿 Praha (Prague)</option>
+                                <option value="48.1486,17.1077">🇸🇰 Bratislava</option>
+                                <option value="48.8566,2.3522">🇫🇷 Paříž (Paris)</option>
+                                <option value="52.5200,13.4050">🇩🇪 Berlín (Berlin)</option>
+                                <option value="41.9028,12.4964">🇮🇹 Řím (Rome)</option>
+                                <option value="40.4168,-3.7038">🇪🇸 Madrid</option>
+                                <option value="55.7558,37.6173">🇷🇺 Moskva (Moscow)</option>
+                                <option value="64.1466,-21.9426">🇮🇸 Reykjavík</option>
+                                <option value="42.6507,18.0944">🇲🇪 Dubrovník (Dubrovnik)</option>
+                            </optgroup>
+                            <optgroup label="USA">
+                                <option value="40.7128,-74.0060">🇺🇸 New York</option>
+                                <option value="38.9072,-77.0369">🇺🇸 Washington D.C.</option>
+                                <option value="34.0522,-118.2437">🇺🇸 Los Angeles</option>
+                                <option value="37.7749,-122.4194">🇺🇸 San Francisco</option>
+                                <option value="41.8781,-87.6298">🇺🇸 Chicago</option>
+                                <option value="25.7617,-80.1918">🇺🇸 Miami</option>
+                                <option value="29.7604,-95.3698">🇺🇸 Houston</option>
+                                <option value="47.6062,-122.3321">🇺🇸 Seattle</option>
+                                <option value="42.3601,-71.0589">🇺🇸 Boston</option>
+                                <option value="39.7392,-104.9903">🇺🇸 Denver</option>
+                                <option value="36.1699,-115.1398">🇺🇸 Las Vegas</option>
+                                <option value="21.3099,-157.8581">🇺🇸 Honolulu (Hawaii)</option>
+                            </optgroup>
+                            <optgroup label="Ostatní / Other">
+                                <option value="19.4326,-99.1332">🇲🇽 Mexico City</option>
+                                <option value="21.1619,-86.8515">🇲🇽 Cancún</option>
+                                <option value="-22.9068,-43.1729">🇧🇷 Rio de Janeiro</option>
+                                <option value="-34.6037,-58.3816">🇦🇷 Buenos Aires</option>
+                                <option value="-33.8688,151.2093">🇦🇺 Sydney</option>
+                                <option value="-37.8136,144.9631">🇦🇺 Melbourne</option>
+                                <option value="35.6762,139.6503">🇯🇵 Tokio (Tokyo)</option>
+                                <option value="37.5665,126.9780">🇰🇷 Soul (Seoul)</option>
+                                <option value="39.9042,116.4074">🇨🇳 Peking (Beijing)</option>
+                                <option value="31.2304,121.4737">🇨🇳 Šanghaj (Shanghai)</option>
+                                <option value="22.3193,114.1694">🇭🇰 Hong Kong</option>
+                                <option value="1.3521,103.8198">🇸🇬 Singapur (Singapore)</option>
+                                <option value="28.6139,77.2090">🇮🇳 Dillí (Delhi)</option>
+                                <option value="19.0760,72.8777">🇮🇳 Bombaj (Mumbai)</option>
+                                <option value="-1.2921,36.8219">🇰🇪 Nairobi</option>
+                                <option value="-33.9249,18.4241">🇿🇦 Kapské město (Cape Town)</option>
+                                <option value="30.0444,31.2357">🇪🇬 Káhira (Cairo)</option>
+                                <option value="25.2048,55.2708">🇦🇪 Dubaj (Dubai)</option>
+                                <option value="-41.2865,174.7762">🇳🇿 Wellington</option>
+                            </optgroup>
+                            <optgroup label="Letoviska / Resorts">
+                                <option value="-8.3405,115.0920">🇮🇩 Bali (Denpasar)</option>
+                                <option value="4.1755,73.5093">🇲🇻 Maledivy (Malé)</option>
+                                <option value="18.4655,-69.9312">🇩🇴 Punta Cana</option>
+                                <option value="13.0827,80.2707">🇮🇳 Chennai (Marina Beach)</option>
+                            </optgroup>
+                            <optgroup label="Plochozemské cíle / Flat Earth Landmarks">
+                                <option value="27.9881,86.9250">🏔️ Mount Everest</option>
+                                <option value="-77.8419,166.6863">❄️ McMurdo (Antarktida)</option>
+                                <option value="-75.583,-26.567">❄️ Halley (Antarktida)</option>
+                                <option value="-66.283,110.533">❄️ Casey (Antarktida)</option>
+                                <option value="-74.65,164.12">❄️ Scott Base (Antarktida)</option>
+                                <option value="-70.65,-8.25">❄️ Neumayer (Antarktida)</option>
+                                <option value="38.8409,-105.0423">🔭 Pikes Peak Observatory</option>
+                                <option value="38.9997,-104.49723">📡 Heffron (USAF)</option>
+                                <option value="90,0">🧭 Severní pól (North Pole)</option>
+                                <option value="-90,0">🧭 Jižní pól (South Pole)</option>
+                                <option value="0,0">🧭 Nultý bod (0°, 0°)</option>
+                                <option value="23.5,0">☀️ Obratník Raka (Tropic Cancer)</option>
+                                <option value="-23.5,0">☀️ Obratník Koz. (Tropic Capric.)</option>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="input-group">
@@ -543,41 +652,73 @@
                         </label>
                         <select id="city2" onchange="selectCity(2)" style="width:100%; padding:10px; border-radius:8px; border:2px solid #ddd; font-size:14px;">
                             <option value="">-- Vlastní souřadnice --</option>
-                            <option value="50.0755,14.4378">🇨🇿 Praha (Prague)</option>
-                            <option value="48.8566,2.3522">🇫🇷 Paříž (Paris)</option>
-                            <option value="51.5074,-0.1278">🇬🇧 Londýn (London)</option>
-                            <option value="52.5200,13.4050">🇩🇪 Berlín (Berlin)</option>
-                            <option value="41.9028,12.4964">🇮🇹 Řím (Rome)</option>
-                            <option value="40.4168,-3.7038">🇪🇸 Madrid</option>
-                            <option value="55.7558,37.6173">🇷🇺 Moskva (Moscow)</option>
-                            <option value="40.7128,-74.0060" selected>🇺🇸 New York</option>
-                            <option value="34.0522,-118.2437">🇺🇸 Los Angeles</option>
-                            <option value="41.8781,-87.6298">🇺🇸 Chicago</option>
-                            <option value="25.7617,-80.1918">🇺🇸 Miami</option>
-                            <option value="19.4326,-99.1332">🇲🇽 Mexico City</option>
-                            <option value="-22.9068,-43.1729">🇧🇷 Rio de Janeiro</option>
-                            <option value="-34.6037,-58.3816">🇦🇷 Buenos Aires</option>
-                            <option value="-33.8688,151.2093">🇦🇺 Sydney</option>
-                            <option value="-37.8136,144.9631">🇦🇺 Melbourne</option>
-                            <option value="35.6762,139.6503">🇯🇵 Tokio (Tokyo)</option>
-                            <option value="37.5665,126.9780">🇰🇷 Soul (Seoul)</option>
-                            <option value="39.9042,116.4074">🇨🇳 Peking (Beijing)</option>
-                            <option value="31.2304,121.4737">🇨🇳 Šanghaj (Shanghai)</option>
-                            <option value="22.3193,114.1694">🇭🇰 Hong Kong</option>
-                            <option value="1.3521,103.8198">🇸🇬 Singapur (Singapore)</option>
-                            <option value="28.6139,77.2090">🇮🇳 Dillí (Delhi)</option>
-                            <option value="19.0760,72.8777">🇮🇳 Bombaj (Mumbai)</option>
-                            <option value="-1.2921,36.8219">🇰🇪 Nairobi</option>
-                            <option value="-33.9249,18.4241">🇿🇦 Kapské město (Cape Town)</option>
-                            <option value="30.0444,31.2357">🇪🇬 Káhira (Cairo)</option>
-                            <option value="25.2048,55.2708">🇦🇪 Dubaj (Dubai)</option>
-                            <option value="64.1466,-21.9426">🇮🇸 Reykjavík</option>
-                            <option value="-41.2865,174.7762">🇳🇿 Wellington</option>
-                            <option value="38.8409,-105.0423">🇺🇸 Pikes Peak</option>
-                            <option value="38.9997,-104.49723">🇺🇸 Heffron</option>
-                            <option value="90,0">🧭 Severní pól (North Pole)</option>
-                            <option value="-90,0">🧭 Jižní pól (South Pole)</option>
-                            <option value="0,0">🧭 Nultý bod (0°, 0°)</option>
+                            <optgroup label="Evropa / Europe">
+                                <option value="50.0755,14.4378">🇨🇿 Praha (Prague)</option>
+                                <option value="48.1486,17.1077">🇸🇰 Bratislava</option>
+                                <option value="48.8566,2.3522">🇫🇷 Paříž (Paris)</option>
+                                <option value="52.5200,13.4050">🇩🇪 Berlín (Berlin)</option>
+                                <option value="41.9028,12.4964">🇮🇹 Řím (Rome)</option>
+                                <option value="40.4168,-3.7038">🇪🇸 Madrid</option>
+                                <option value="55.7558,37.6173">🇷🇺 Moskva (Moscow)</option>
+                                <option value="64.1466,-21.9426">🇮🇸 Reykjavík</option>
+                                <option value="42.6507,18.0944">🇲🇪 Dubrovník (Dubrovnik)</option>
+                            </optgroup>
+                            <optgroup label="USA">
+                                <option value="40.7128,-74.0060" selected>🇺🇸 New York</option>
+                                <option value="38.9072,-77.0369">🇺🇸 Washington D.C.</option>
+                                <option value="34.0522,-118.2437">🇺🇸 Los Angeles</option>
+                                <option value="37.7749,-122.4194">🇺🇸 San Francisco</option>
+                                <option value="41.8781,-87.6298">🇺🇸 Chicago</option>
+                                <option value="25.7617,-80.1918">🇺🇸 Miami</option>
+                                <option value="29.7604,-95.3698">🇺🇸 Houston</option>
+                                <option value="47.6062,-122.3321">🇺🇸 Seattle</option>
+                                <option value="42.3601,-71.0589">🇺🇸 Boston</option>
+                                <option value="39.7392,-104.9903">🇺🇸 Denver</option>
+                                <option value="36.1699,-115.1398">🇺🇸 Las Vegas</option>
+                                <option value="21.3099,-157.8581">🇺🇸 Honolulu (Hawaii)</option>
+                            </optgroup>
+                            <optgroup label="Ostatní / Other">
+                                <option value="19.4326,-99.1332">🇲🇽 Mexico City</option>
+                                <option value="21.1619,-86.8515">🇲🇽 Cancún</option>
+                                <option value="-22.9068,-43.1729">🇧🇷 Rio de Janeiro</option>
+                                <option value="-34.6037,-58.3816">🇦🇷 Buenos Aires</option>
+                                <option value="-33.8688,151.2093">🇦🇺 Sydney</option>
+                                <option value="-37.8136,144.9631">🇦🇺 Melbourne</option>
+                                <option value="35.6762,139.6503">🇯🇵 Tokio (Tokyo)</option>
+                                <option value="37.5665,126.9780">🇰🇷 Soul (Seoul)</option>
+                                <option value="39.9042,116.4074">🇨🇳 Peking (Beijing)</option>
+                                <option value="31.2304,121.4737">🇨🇳 Šanghaj (Shanghai)</option>
+                                <option value="22.3193,114.1694">🇭🇰 Hong Kong</option>
+                                <option value="1.3521,103.8198">🇸🇬 Singapur (Singapore)</option>
+                                <option value="28.6139,77.2090">🇮🇳 Dillí (Delhi)</option>
+                                <option value="19.0760,72.8777">🇮🇳 Bombaj (Mumbai)</option>
+                                <option value="-1.2921,36.8219">🇰🇪 Nairobi</option>
+                                <option value="-33.9249,18.4241">🇿🇦 Kapské město (Cape Town)</option>
+                                <option value="30.0444,31.2357">🇪🇬 Káhira (Cairo)</option>
+                                <option value="25.2048,55.2708">🇦🇪 Dubaj (Dubai)</option>
+                                <option value="-41.2865,174.7762">🇳🇿 Wellington</option>
+                            </optgroup>
+                            <optgroup label="Letoviska / Resorts">
+                                <option value="-8.3405,115.0920">🇮🇩 Bali (Denpasar)</option>
+                                <option value="4.1755,73.5093">🇲🇻 Maledivy (Malé)</option>
+                                <option value="18.4655,-69.9312">🇩🇴 Punta Cana</option>
+                                <option value="13.0827,80.2707">🇮🇳 Chennai (Marina Beach)</option>
+                            </optgroup>
+                            <optgroup label="Plochozemské cíle / Flat Earth Landmarks">
+                                <option value="27.9881,86.9250">🏔️ Mount Everest</option>
+                                <option value="-77.8419,166.6863">❄️ McMurdo (Antarktida)</option>
+                                <option value="-75.583,-26.567">❄️ Halley (Antarktida)</option>
+                                <option value="-66.283,110.533">❄️ Casey (Antarktida)</option>
+                                <option value="-74.65,164.12">❄️ Scott Base (Antarktida)</option>
+                                <option value="-70.65,-8.25">❄️ Neumayer (Antarktida)</option>
+                                <option value="38.8409,-105.0423">🔭 Pikes Peak Observatory</option>
+                                <option value="38.9997,-104.49723">📡 Heffron (USAF)</option>
+                                <option value="90,0">🧭 Severní pól (North Pole)</option>
+                                <option value="-90,0">🧭 Jižní pól (South Pole)</option>
+                                <option value="0,0">🧭 Nultý bod (0°, 0°)</option>
+                                <option value="23.5,0">☀️ Obratník Raka (Tropic Cancer)</option>
+                                <option value="-23.5,0">☀️ Obratník Koz. (Tropic Capric.)</option>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="input-group">
@@ -687,6 +828,44 @@
         </div>
     </div>
 
+    <!-- Footer / Zápatí -->
+    <footer>
+        <div class="footer-content">
+            <img src="img/Logo_Space_League_of_Justice_2025.png" alt="Space League of Justice Logo" class="footer-logo">
+            
+            <div class="organization">
+                <span class="lang-cs">🚀 Space League of Justice</span>
+                <span class="lang-en hidden">🚀 Space League of Justice</span>
+            </div>
+            
+            <h3>
+                <span class="lang-cs">👨‍💻 Programátor</span>
+                <span class="lang-en hidden">👨‍💻 Programmer</span>
+            </h3>
+            <p><strong>Jaroslav Přichystal</strong></p>
+            
+            <p style="margin-top: 15px;">
+                <span class="lang-cs">📅 Vytvořeno: Únor 2026</span>
+                <span class="lang-en hidden">📅 Created: February 2026</span>
+            </p>
+            
+            <div class="license">
+                <p style="margin-top: 0;">
+                    <span class="lang-cs">📜 <strong>Licence:</strong> Volné nekomerční použití s uvedením autora</span>
+                    <span class="lang-en hidden">📜 <strong>License:</strong> Free non-commercial use with attribution</span>
+                </p>
+                <p style="font-size: 0.85em; margin: 8px 0;">
+                    <span class="lang-cs">⚠️ Komerční využití a zneužití kódu je zakázáno bez písemného souhlasu autora.</span>
+                    <span class="lang-en hidden">⚠️ Commercial use and code misuse are prohibited without written permission.</span>
+                </p>
+                <p style="margin-bottom: 0;">
+                    <span class="lang-cs">© 2026 Space League of Justice. Všechna práva vyhrazena.</span>
+                    <span class="lang-en hidden">© 2026 Space League of Justice. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Aktuální jazyk
         let currentLang = 'cs';
@@ -732,21 +911,27 @@
                 step3Title: "📍 Krok 3: Pozice bodu B na ploché mapě", 
                 step4Title: "🔄 Krok 4: Kartézské souřadnice (x, y)",
                 step4Desc: "Převedeme polární souřadnice na x, y pro vykreslení na mapě:",
-                step5Title: "📏 Krok 5: VZDÁLENOST - Kartézský výpočet",
-                step5Desc: "Na ploché mapě počítáme vzdálenost mezi dvěma body pomocí Pythagorovy věty v kartézské rovině:",
-                step5Note: "Tento výpočet je přesný pouze na ploché mapě. Skutečné vzdálenosti na Zemi se mohou lišit kvůli zakřivení povrchu.",
+                step5Title: "📏 Krok 5: VZDÁLENOST - Gleasonova projekce (geometrická metoda)",
+                step5Desc: "Transformujeme body z 2D Gleasonovy mapy zpět na 3D sféru pomocí kartézských vektorů. Nejprve vypočítáme tětivu, pak převedeme na oblouk:",
+                step5Note: "Tento výpočet respektuje geometrii koule, ačkoliv vychází z Gleasonovy projekce. Výsledek odpovídá reálné vzdálenosti na sféře.",
+                step5Transform: "Transformace z 2D Gleasonovy mapy na 3D sféru:",
+                step5Vectors: "3D kartézské vektory (pomocí zkracovacího koeficientu):",
+                step5Coeff: "Zkracovací koeficient k = sin(r/R)/(r/R) eliminuje horizontální roztažení mapy k pólům.",
+                step5Chord: "tětiva",
+                step5Angle: "úhel",
+                step5Distance: "vzdálenost",
                 haversinTitle: "✅ Porovnání: Haversinova rovnice (koule)",
                 haversinDesc: "Pro porovnání je zde haversinův vzorec – standardní vzorec pro výpočet vzdáleností na kouli:",
-                flatResult: "Plochá Země",
-                flatMethod: "Kartézská vzdálenost (Pythagorova věta)",
+                flatResult: "Gleasonova projekce",
+                flatMethod: "Geometrická metoda (3D transformace)",
                 globeResult: "Kulatá Země (Haversin)",
                 globeMethod: "Standardní vzorec pro kouli",
                 matchYes: "✅ VÝSLEDKY SE PŘESNĚ SHODUJÍ! (To by se stát nemělo u větších vzdáleností.)",
                 difference: "Rozdíl",
                 whatMeans: "🤔 Co to znamená?",
-                explanation1: "Tento výpočet ukazuje, jak by vypadaly vzdálenosti na skutečně ploché mapě.",
-                explanation2: "Pythagorova věta platí pouze v rovině. Na Zemi (kouli) je nutné použít sférické vzorce.",
-                explanation3: "Závěr: Pokud by Země byla plochá, vzdálenosti by se počítaly jednodušeji, ale neodpovídaly by realitě na velké vzdálenosti.",
+                explanation1: "Tento výpočet používá geometrickou transformaci z Gleasonovy 2D mapy na 3D sféru pomocí kartézských vektorů.",
+                explanation2: "Zkracovací koeficient k = sin(r/R)/(r/R) zajišťuje, že se horizontální roztažení mapy eliminuje směrem k pólům.",
+                explanation3: "Závěr: Gleasonova projekce je užitečná pro vizualizaci, ale pro výpočet vzdáleností musíme respektovat geometrii sféry.",
                 fromPole: "od Severního pólu (středu mapy)"
             },
             en: {
@@ -758,21 +943,27 @@
                 step3Title: "📍 Step 3: Position of point B on flat map",
                 step4Title: "🔄 Step 4: Cartesian coordinates (x, y)",
                 step4Desc: "Convert polar coordinates to x, y for plotting on map:",
-                step5Title: "📏 Step 5: DISTANCE - Cartesian calculation",
-                step5Desc: "On a flat map, the distance between two points is calculated using the Pythagorean theorem in the Cartesian plane:",
-                step5Note: "This calculation is only accurate on a flat map. Real distances on Earth may differ due to surface curvature.",
+                step5Title: "📏 Step 5: DISTANCE - Gleason projection (geometric method)",
+                step5Desc: "We transform points from 2D Gleason map back to 3D sphere using Cartesian vectors. First calculate the chord, then convert to arc:",
+                step5Note: "This calculation respects sphere geometry, even though it starts from Gleason projection. Result matches real distance on sphere.",
+                step5Transform: "Transformation from 2D Gleason map to 3D sphere:",
+                step5Vectors: "3D Cartesian vectors (using shrinking coefficient):",
+                step5Coeff: "Shrinking coefficient k = sin(r/R)/(r/R) eliminates horizontal map stretching towards poles.",
+                step5Chord: "chord",
+                step5Angle: "angle",
+                step5Distance: "distance",
                 haversinTitle: "✅ Comparison: Haversine formula (sphere)",
                 haversinDesc: "For comparison, here is the haversine formula – the standard formula for calculating distances on a sphere:",
-                flatResult: "Flat Earth",
-                flatMethod: "Cartesian distance (Pythagorean theorem)",
+                flatResult: "Gleason Projection",
+                flatMethod: "Geometric method (3D transformation)",
                 globeResult: "Globe Earth (Haversine)",
                 globeMethod: "Standard formula for sphere",
                 matchYes: "✅ RESULTS MATCH EXACTLY! (This should not happen for large distances.)",
                 difference: "Difference",
                 whatMeans: "🤔 What does this mean?",
-                explanation1: "This calculation shows what distances would look like on a truly flat map.",
-                explanation2: "The Pythagorean theorem only applies in a plane. On Earth (a sphere), spherical formulas are needed.",
-                explanation3: "Conclusion: If the Earth were flat, distances would be simpler to calculate, but would not match reality for large distances.",
+                explanation1: "This calculation uses geometric transformation from Gleason's 2D map to 3D sphere using Cartesian vectors.",
+                explanation2: "The shrinking coefficient k = sin(r/R)/(r/R) ensures that horizontal map stretching is eliminated towards the poles.",
+                explanation3: "Conclusion: Gleason projection is useful for visualization, but for distance calculation we must respect sphere geometry.",
                 fromPole: "from North Pole (center of map)"
             }
         };
@@ -795,6 +986,88 @@
             const d = R * Math.acos(Math.min(1, Math.max(-1, cosD)));
             
             return d;
+        }
+
+        /**
+         * Výpočet vzdálenosti pomocí Gleasonovy projekce (geometrická metoda)
+         * 
+         * Místo přímého použití Haversinova vzorce transformujeme souřadnice
+         * z 2D Gleasonovy mapy zpět na 3D sféru pomocí kartézských vektorů.
+         * Výsledek bude odpovídat reálné vzdálenosti na kouli.
+         * 
+         * @param {number} lat1 - Zeměpisná šířka prvního bodu (ve stupních)
+         * @param {number} lon1 - Zeměpisná délka prvního bodu (ve stupních)
+         * @param {number} lat2 - Zeměpisná šířka druhého bodu (ve stupních)
+         * @param {number} lon2 - Zeměpisná délka druhého bodu (ve stupních)
+         * @param {number} circumference - Obvod rovníku (standardně 40075 km)
+         * @returns {number} Vzdálenost v kilometrech
+         */
+        function calculateGleasonDistance(lat1, lon1, lat2, lon2, circumference) {
+            // Poloměr Země z obvodu rovníku
+            const R = circumference / (2 * Math.PI);
+            
+            // KROK 1: Převod GPS souřadnic na polární souřadnice Gleasonovy mapy
+            // r = vzdálenost od středu (severního pólu) v km
+            // θ = úhel (longitude) v radiánech
+            
+            const lat1Rad = toRadians(lat1);
+            const lat2Rad = toRadians(lat2);
+            const lon1Rad = toRadians(lon1);
+            const lon2Rad = toRadians(lon2);
+            
+            // Vzdálenost od severního pólu na Gleasonově mapě
+            // Pro lat = 90° → r = 0 (střed)
+            // Pro lat = 0° → r = R × π/2 (rovník)
+            // Pro lat = -90° → r = R × π (okraj)
+            const r1 = R * (Math.PI / 2 - lat1Rad);
+            const r2 = R * (Math.PI / 2 - lat2Rad);
+            
+            // KROK 2: Vytvoření korigovaných 3D kartézských vektorů
+            // Tyto vektory mapují 2D bod z Gleasonovy mapy zpět na 3D sféru
+            
+            // Zkracovací koeficient k = sin(r/R) / (r/R)
+            // Tento koeficient eliminuje horizontální roztažení mapy směrem k pólům.
+            // Blíže k pólu (malé r) → k ≈ 1 (skoro žádná korekce)
+            // Dále od pólu (velké r) → k < 1 (větší zkracování)
+            
+            // Pro bod 1:
+            const rOverR1 = r1 / R;  // normalizovaná vzdálenost (v radiánech)
+            const sinTerm1 = Math.sin(rOverR1);
+            const cosTerm1 = Math.cos(rOverR1);
+            
+            // Kartézské souřadnice na 3D sféře:
+            // x a y tvoří horizontální rovinu, z je vertikální osa
+            const x1 = R * sinTerm1 * Math.cos(lon1Rad);
+            const y1 = R * sinTerm1 * Math.sin(lon1Rad);
+            const z1 = R * cosTerm1;
+            
+            // Pro bod 2:
+            const rOverR2 = r2 / R;
+            const sinTerm2 = Math.sin(rOverR2);
+            const cosTerm2 = Math.cos(rOverR2);
+            
+            const x2 = R * sinTerm2 * Math.cos(lon2Rad);
+            const y2 = R * sinTerm2 * Math.sin(lon2Rad);
+            const z2 = R * cosTerm2;
+            
+            // KROK 3: Výpočet délky tětivy mezi dvěma body v 3D prostoru
+            // Tětiva je přímka spojující dva body na sféře
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            const dz = z2 - z1;
+            
+            const chordLength = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            
+            // KROK 4: Převod tětivy na délku oblouku
+            // Tětiva je přímka skrz "Zemi", ale my potřebujeme vzdálenost po povrchu
+            // Vztah: chord = 2R × sin(θ/2), kde θ je úhel mezi body
+            // Tedy: θ = 2 × arcsin(chord / (2R))
+            // A délka oblouku: d = R × θ
+            
+            const centralAngle = 2 * Math.asin(Math.min(1, chordLength / (2 * R)));
+            const arcLength = R * centralAngle;
+            
+            return arcLength;
         }
 
         // Haversinova rovnice (pro porovnání)
@@ -851,21 +1124,18 @@
             // Výpočty
             const pos1 = getFlatMapPosition(lat1, lon1, circumference);
             const pos2 = getFlatMapPosition(lat2, lon2, circumference);
-            // Kartézská vzdálenost (Pythagorova věta)
-            const cartesianDist = Math.sqrt(
-                Math.pow(pos1.x - pos2.x, 2) +
-                Math.pow(pos1.y - pos2.y, 2)
-            );
+            // Výpočet vzdálenosti pomocí Gleasonovy projekce (geometrická metoda)
+            const gleasonDist = calculateGleasonDistance(lat1, lon1, lat2, lon2, circumference);
             // Pro porovnání ponecháme haversin
             const haversineDist = haversineDistance(lat1, lon1, lat2, lon2, circumference);
             const radius = circumference / (2 * Math.PI);
 
             // Zobrazení výpočtu
-            displayCalculation(lat1, lon1, lat2, lon2, circumference, radius, pos1, pos2, cartesianDist, haversineDist);
+            displayCalculation(lat1, lon1, lat2, lon2, circumference, radius, pos1, pos2, gleasonDist, haversineDist);
             // Zobrazení výsledku
-            displayResult(cartesianDist, haversineDist);
+            displayResult(gleasonDist, haversineDist);
             // Vykreslení mapy
-            drawFlatEarth(lat1, lon1, lat2, lon2, circumference, pos1, pos2, cartesianDist);
+            drawFlatEarth(lat1, lon1, lat2, lon2, circumference, pos1, pos2, gleasonDist);
         }
 
         // Zobrazení kroků výpočtu
@@ -915,15 +1185,26 @@
                 <div class="calculation-step" style="border-left-color: #e74c3c; background: #fff0f0;">
                     <h4>${t.step5Title}</h4>
                     <p><strong style="color: #e74c3c;">${t.step5Desc}</strong></p>
-                    <div class="formula">d = √[(x₂ - x₁)² + (y₂ - y₁)²]</div>
-                    <div class="substitution">
-                        d = √[(${pos2.x.toFixed(4)} - ${pos1.x.toFixed(4)})² + (${pos2.y.toFixed(4)} - ${pos1.y.toFixed(4)})²]
-                    </div>
+                    <p style="margin: 10px 0; padding: 10px; background: #e8f4fd; border-radius: 5px; font-size: 0.95em;">
+                        🔄 <strong>${t.step5Transform}</strong><br>
+                        r₁ = ${pos1.r.toFixed(2)} km, θ₁ = ${lon1}°<br>
+                        r₂ = ${pos2.r.toFixed(2)} km, θ₂ = ${lon2}°<br>
+                        <br>
+                        📐 <strong>${t.step5Vectors}</strong><br>
+                        x = R × sin(r/R) × cos(lon)<br>
+                        y = R × sin(r/R) × sin(lon)<br>
+                        z = R × cos(r/R)<br>
+                        <br>
+                        <em>${t.step5Coeff}</em>
+                    </p>
+                    <div class="formula">${t.step5Chord} = √[(x₂ - x₁)² + (y₂ - y₁)² + (z₂ - z₁)²]</div>
+                    <div class="formula">${t.step5Angle} = 2 × arcsin(${t.step5Chord} / (2R))</div>
+                    <div class="formula">${t.step5Distance} = R × ${t.step5Angle}</div>
                     <div class="result-value" style="font-size: 1.3em; background: #ffe0e0;">
                         d = ${sphericalDist.toFixed(4)} km
                     </div>
-                    <p style="margin-top: 15px; padding: 10px; background: #fff3cd; border-radius: 5px;">
-                        ⚠️ <em>${t.step5Note}</em>
+                    <p style="margin-top: 15px; padding: 10px; background: #d4edda; border-radius: 5px;">
+                        ✅ <em>${t.step5Note}</em>
                     </p>
                 </div>
 
@@ -951,7 +1232,7 @@
                     <div class="comparison-box flat">
                         <h3>🗺️ ${t.flatResult}</h3>
                         <div class="distance">${sphericalDist.toFixed(2)} km</div>
-                        <p>Kartézská vzdálenost (Pythagorova věta)</p>
+                        <p>${t.flatMethod}</p>
                     </div>
                     <div class="comparison-box globe">
                         <h3>🌐 ${t.globeResult}</h3>
