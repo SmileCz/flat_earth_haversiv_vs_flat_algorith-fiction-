@@ -1,0 +1,20 @@
+.git
+*.log
+*.tmp
+*.out
+*.exe
+.DS_Store
+vendor/
+# keep go.mod/go.sum in context - do not ignore them
+#*.mod
+#*.sum
+# temporary build folders
+bin/
+obj/
+
+# IDE files
+.vscode/
+.idea/
+
+# Go build cache
+**/pkg/
